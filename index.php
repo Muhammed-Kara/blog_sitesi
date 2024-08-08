@@ -172,4 +172,8 @@
     <script src="owl/owl.carousel.min.js"></script>
     <script src="owl/script.js"></script>
 </body>
-</html>                                                    
+</html>          
+
+<?php
+include("baglanti.php");
+?>
