@@ -20,7 +20,7 @@
             <a href="#hakkimizda"><i class="fa-solid fa-circle-info ikon "></i>Hakkımda</a>
             <a href="#egitimler"><i class="fa-solid fa-graduation-cap ikon" ></i>Eğitimler</a>
             <a href="#ekip"><i class="fa-solid fa-user-plus ikon"></i>Ekip</a>
-            <a href="#iletisim"><i class="fa-solid fa-phone ikon"></i>  İletişim</a>
+            <a href="#adres"><i class="fa-solid fa-phone ikon"></i>  İletişim</a>
  
         </nav>
     </section>
