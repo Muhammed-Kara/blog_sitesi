@@ -132,6 +132,7 @@
             <h3 id="h3iletisim">
                 İletişim
             </h3>
+            <form action="index.php" method="post">
             <div id="iletisim-opak" >
                 <div id="formgroup">
                     <div id="solform">
@@ -157,6 +158,7 @@
                 </div>
 
             </div>
+            </form>
             <footer>
                 <div id="copyright">2024 Tüm Hakları Saklıdır</div>
                 <div id="socielfooter">
@@ -176,4 +178,21 @@
 
 <?php
 include("baglanti.php");
+
+if(isset($_POST["isim"], $_POST["tel"], $_POST["mail"],$_POST["konu"],$_POST["mesaj"])){
+
+    $adsoyad = $_POST["isim"];
+    $telefon = $_POST["tel"];
+    $email = $_POST["mail"];
+    $konu = $_POST["konu"];
+    $mesaj = $_POST["mesaj"];
+
+    $ekle = "INSERT INTO iletisim (adsoyad, telefon, email, konu, mesaj) VALUES ('".$adsoyad."', '".$telefon."', '".$email."', '".$konu."', '".$mesaj."')";
+  
+    if ($baglan->query($ekle) === TRUE) {
+        echo "<script>alert('Mesajınız başarılı bir şekilde iletilmiştir')</script>";
+    } else {
+        echo "Hata: " . $baglan->error;
+    }
+}
 ?>
