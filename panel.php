@@ -28,24 +28,42 @@
 </head>
 <body>
 
-<h1>A Fancy Table</h1>
+<h1>Veri Tabanından Çekilen Bilgiler</h1>
 
 <table id="customers">
   <tr>
     <th>Ad Soyad</th>
     <th>Telefon</th>
     <th>E-mail</th>
-    <th>Konu </th>
+    <th>Konu</th>
     <th>Mesaj</th>
   </tr>
 
-  <tr>
-    <td>Ali</td>
-    <td>541 456 78 90</td>
-    <td> ali44@gmail.com</td>
-    <td>test</td>
-    <td>Merhaba dünya</td>
-  </tr>
+<?php
+include("baglanti.php");
+
+// Veritabanından verileri çekmek için sorgu
+$sec = "SELECT * FROM iletisim";
+$sonuc = $baglan->query($sec);
+
+// Eğer veritabanında satır varsa
+if ($sonuc->num_rows > 0) {
+    // Her satırı al ve tabloya ekle
+    while ($cek = $sonuc->fetch_assoc()) {
+        echo "
+        <tr>
+            <td>".$cek['adsoyad']."</td>
+            <td>".$cek['telefon']."</td>
+            <td>".$cek['email']."</td>
+            <td>".$cek['konu']."</td>
+            <td>".$cek['mesaj']."</td>
+        </tr>
+        ";
+    }
+} else {
+    echo "<tr><td colspan='5'>Veri Tabanında Veri Bulunamamıştır</td></tr>";
+}
+?>
 
 </table>
 
